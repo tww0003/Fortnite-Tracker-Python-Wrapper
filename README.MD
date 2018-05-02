@@ -29,7 +29,7 @@ There are only 3 valid platform values.
 | --------- | ----- |
 | PC        | `pc`   |
 | Playstation | `psn`|
-| Xbox One    | `xbn`|  
+| Xbox One    | `xbl`|  
   
 Every API call, aside from lifetime stats, requires a playlist value to be supplied.  
 Here is the list of valid Enum's for the Fortnite Playlists:  

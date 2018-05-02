@@ -7,7 +7,7 @@ but this library plays by the Fortnite Tracker rules.
 - [Requirements](#requirements)  
 - [Installation](#installation)  
 - [Documentation](#documentation)  
-- [How to use it](#how to use)  
+- [Examples](#examples)  
 - [Notes](#notes)
 - [License](#license)  
 
@@ -73,7 +73,7 @@ And, finally, here are all the currently available API calls.
 | `get_score_per_match(self)`            | Returns a users total average kills per match | None                                                                                                 | `String`               | 
 
 
-## How to use  
+## Examples  
 Import the FortniteAPI files  
 `from FortniteAPI import FortnitePlaylist, FortniteAPI`  
   

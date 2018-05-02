@@ -9,6 +9,7 @@ but this library plays by the Fortnite Tracker rules.
 - [Documentation](#documentation)  
 - [How to use it](#how to use)  
 - [Notes](#notes)
+- [License](#license)  
 
 ## Requirements  
 - An Epic Games account linked to your PC, PSN, or Xbox Live account.  
@@ -103,4 +104,8 @@ This data didn't seem very reliable to me so I didn't include it, but it can be 
 There is also no error handling in this because I'm lazy. If a user hasn't played in the current season, an exception will happen 
 claiming an invalid key, so make sure you properly handle error when using this code. As a result of no error handling, 
 I'm sure random errors will occur. If it bothers you enough, open a pull request. I'll look over it and accept it.  
-If you do send a pull request, make sure you follow the [PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/).
+If you do send a pull request, make sure you follow the [PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/).  
+  
+## License  
+  
+Copyright (c) 2018 Tyler Williamson Licensed under the WTFPL license.

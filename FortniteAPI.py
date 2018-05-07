@@ -39,61 +39,115 @@ class FortniteAPI:
             self.make_request()
 
     def get_score(self, playlist):
-        return self.json_data['stats'][playlist.value]['score']['value']
-
-    def get_top_one(self, playlist):
-        return self.json_data['stats'][playlist.value]['top1']['value']
-
-    def get_top_three(self, playlist):
-        return self.json_data['stats'][playlist.value]['top3']['value']
-
-    def get_top_five(self, playlist):
-        return self.json_data['stats'][playlist.value]['top5']['value']
-
-    def get_top_six(self, playlist):
-        return self.json_data['stats'][playlist.value]['top6']['value']
-
-    def get_top_ten(self, playlist):
-        return self.json_data['stats'][playlist.value]['top10']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['top10']['value']
+        except KeyError:
+            return_data = '0'
+        return return_data
 
     def get_top_twelve(self, playlist):
-        return self.json_data['stats'][playlist.value]['top12']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['top12']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_top_twenty_five(self, playlist):
-        return self.json_data['stats'][playlist.value]['top25']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['top25']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_kd(self, playlist):
-        return self.json_data['stats'][playlist.value]['kd']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['kd']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_matches(self, playlist):
-        return self.json_data['stats'][playlist.value]['matches']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['matches']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_kills(self, playlist):
-        return self.json_data['stats'][playlist.value]['kills']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['kills']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_kpg(self, playlist):
-        return self.json_data['stats'][playlist.value]['kpg']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['kpg']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_score_per_match(self, playlist):
-        return self.json_data['stats'][playlist.value]['scorePerMatch']['value']
+        try:
+            return_data = self.json_data['stats'][playlist.value]['scorePerMatch']['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_score(self):
-        return self.json_data['lifeTimeStats'][6]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][6]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_matches_played(self):
-        return self.json_data['lifeTimeStats'][7]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][7]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_wins(self):
-        return self.json_data['lifeTimeStats'][8]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][8]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_win_percentage(self):
-        return self.json_data['lifeTimeStats'][9]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][9]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_kills(self):
-        return self.json_data['lifeTimeStats'][10]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][10]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def get_lifetime_kd(self):
-        return self.json_data['lifeTimeStats'][11]['value']
+        try:
+            return_data = self.json_data['lifeTimeStats'][11]['value']
+        except KeyError:
+            return_data = '0'
+
+        return return_data
 
     def set_api_key(self, key):
         global api_key

@@ -19,7 +19,7 @@ but this library plays by the Fortnite Tracker rules.
   
   
 ## Installation  
-Clone the repo and drag the FortniteAPI folder into your project.  
+Clone the repo and drag the FortniteAPI folder into your project, and removed the unneeded files.  
   
 ## Documentation  
 When creating your API object you'll need to suppy it with a platform.  
@@ -101,10 +101,12 @@ If you want to change the platform call the `set_platform(self, platform)` metho
 Fortnite tracker also provides recent games, and additional lifetime stats, such as top 3, 5, 6, etc.  
 This data didn't seem very reliable to me so I didn't include it, but it can be accessed from the json data.   
   
-There is also no error handling in this because I'm lazy. If a user hasn't played in the current season, an exception will happen 
-claiming an invalid key, so make sure you properly handle error when using this code. As a result of no error handling, 
-I'm sure random errors will occur. If it bothers you enough, open a pull request. I'll look over it and accept it.  
-If you do send a pull request, make sure you follow the [PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/).  
+The error handing in this project is very basic. Since Fortnite Tracker's API only has one API call that spits back 
+some json, the only expection I'm checking for is a KeyError exception. If this happens, the method will return 0 as a 
+string.  
+  
+If you decide to send a pull request, make sure you follow the 
+[PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/).  
   
 ## License  
   

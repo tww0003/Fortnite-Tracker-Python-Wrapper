@@ -106,7 +106,8 @@ some json, the only expection I'm checking for is a KeyError exception. If this 
 string.  
   
 If you decide to send a pull request, make sure you follow the 
-[PEP-8 style guide](https://www.python.org/dev/peps/pep-0008/).  
+[Black code style](https://github.com/ambv/black). Reformatting your code for Black is as easy as installing Black with 
+`pip install black` and running `black FortniteAPI.py`  
   
 ## License  
   

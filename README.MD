@@ -44,6 +44,8 @@ Examples:
   
   
 A quick look into the `Stats.py` file will give you an idea on all the stats that are available.  
+
+Complete example:  
   
     from FortniteAPI import FortniteAPI
   

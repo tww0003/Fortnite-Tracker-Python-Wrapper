@@ -6,7 +6,6 @@ but this library plays by the Fortnite Tracker rules.
 
 - [Requirements](#requirements)  
 - [Installation](#installation)  
-- [Documentation](#documentation)  
 - [Examples](#examples)  
 - [Notes](#notes)
 - [License](#license)  
@@ -14,14 +13,13 @@ but this library plays by the Fortnite Tracker rules.
 ## Requirements  
 - An Epic Games account linked to your PC, PSN, or Xbox Live account.  
 - A Fortnite Tracker account and API key. [Register your Fortnite Tracker API key here](https://fortnitetracker.com/site-api)  
-  
-- Python 3 (It probably works on Python2, but I'm too lazy to test that)
+- Python 3 
   
   
 ## Installation  
 Clone the repo and drag the FortniteAPI folder into your project, and removed the unneeded files.  
   
-## Documentation  
+## Examples  
 When creating your API object you'll need to suppy it with a platform.  
 There are only 3 valid platform values.      
   
@@ -31,62 +29,31 @@ There are only 3 valid platform values.
 | Playstation | `psn`|
 | Xbox One    | `xbl`|  
   
-Every API call, aside from lifetime stats, requires a playlist value to be supplied.  
-Here is the list of valid Enum's for the Fortnite Playlists:  
-  
-| Playlist  | Value |
-| --------- | ----- |
-| Solo                 | `FortnitePlaylist.SOLO`          |
-| Duo                  | `FortnitePlaylist.DUO`           |
-| Squads               | `FortnitePlaylist.SQUAD`         |  
-| Current Season Solo  | `FortnitePlaylist.CURRENT_SOLO`  |
-| Current Season Duo   | `FortnitePlaylist.CURRENT_DUO`   |
-| Current Season Squad | `FortnitePlaylist.CURRENT_SQUAD` |
-  
-And, finally, here are all the currently available API calls.  
-  
-| Method         | Description   | Parameters | Return Value |
-| -------------- | ------------- | ---------- | ------------ |
-| `__init__(self, platform, user)`       | Initialized the FortniteAPI object            | `platform` - The gaming platform. Valid values are listed above. `user` - an Epic Games user account | `FortniteAPI`          |
-| `set_api_key(self, key)`               | Sets the API key for the FortniteAPI object   | `key` - your Fortnite Tracker API Key                                                                | `void`                 |
-| `set_user(self, user)`                 | Changes the user.                             | `user` - an Epic Games user account                                                                  | `void`                 |
-| `set_platform(self, platform)`         | Changes the platform.                         | `platform` - The gaming platform                                                                     | `void`                 |
-| `get_score(self, playlist)`            | Gets the users score                          | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-| `get_top_one(self, playlist)`          | Retuns number of wins                         | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-| `get_top_three(self, playlist)`        | Returns number of top 3's                     | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_top_five(self, playlist)`        | Returns number of top 5's                     | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_top_six(self, playlist)`         | Returns number of top 6's                     | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_top_ten(self, playlist)`         | Returns number of top 10's                    | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_top_twelve(self, playlist)`      | Returns number of to 12's                     | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_top_twenty_five(self, playlist)` | Returns the number of to 25's                 | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_kd(self, playlist)`              | Returns the user's kill death ratio           | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_matches(self, playlist)`         | Returns the number of matches played          | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_kills(self, playlist)`           | Returns the number of kills for a user        | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-|  `get_kpg(self, playlist)`             | Returns the average number of kills per game  | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-| `get_score_per_match(self, playlist)`  | Returns the users score                       | `playlist` - A FortnitePlaylist enum value                                                           | `String`               | 
-| `get_lifetime_score(self)`             | Returns the overall score of the user         | None                                                                                                 | `String`               | 
-| `get_lifetime_matches_played(self)`    | Returns total number of matches played        | None                                                                                                 | `String`               | 
-| `get_lifetime_wins(self)`              | Returns total number of wins for the user     | None                                                                                                 | `String`               | 
-| `get_lifetime_win_percentage(self)`    | Returns the lifetime win percentage           | None                                                                                                 | `String`               | 
-| `get_lifetime_kills(self)`             | Returns a users total amount of kills         | None                                                                                                 | `String`               | 
-| `get_lifetime_kd(self)`                | Returns a users total kill death ratio        | None                                                                                                 | `String`               | 
-| `get_score_per_match(self)`            | Returns a users total average kills per match | None                                                                                                 | `String`               | 
+The API object will return a `FortniteStats` object that contains all useful stats given by the Fortnite Tracker API.
+Fortnite tracker also provides recent games, and additional lifetime stats, such as top 3, 5, 6, etc but this data 
+didn't seem very reliable to me so I didn't include it.   
 
-
-## Examples  
-Import the FortniteAPI files  
-`from FortniteAPI import FortnitePlaylist, FortniteAPI`  
+The `FortniteStats` object has properties for current season, and lifetime stats. All stat properties are in upper case 
+with current stats having `CURRENT_` appended to the front and lifetime stats having `LIFETIME_` appended to the 
+front. The playlist for the stats is specified next by either `SOLO_`, `DUO_`, or `SQUAD_`.  
   
-Create the FortniteAPI object supplying the constructor with the platform, and your Epic Games account name:  
-
-`api = FortniteAPI('xbl', 'tylerw330')`  
-    
-Now you need to give the API your api key:    
-`api.set_api_key('YOUR-API-KEY')`  
+Examples:  
+`stats.CURRENT_SOLO_KPG`  
+`stats.LIFETIME_SOLO_KPG`  
+`stats.LIFETIME_KPG`  
   
-From here you're ready to start making some API calls. Most methods in the API take a `FortnitePlaylist` enum value as a parameter.  
-`kill_death_ratio = api.get_kd(FortnitePlaylist.SOLO)`  
   
+A quick look into the `Stats.py` file will give you an idea on all the stats that are available.  
+  
+    from FortniteAPI import FortniteAPI
+  
+    FortniteAPI.api_key = 'fortnite_api_key'
+    api = FortniteAPI('xbl', 'tylerw330')
+  
+    print('Solo kills per game: ' + str(api.stats.CURRENT_SOLO_KPG))
+    print('Duo kills per game: ' + str(api.stats.CURRENT_DUO_KPG))
+    print('Squad kills per game: ' + str(api.stats.CURRENT_SQUAD_KPG))
+     
 If you'd like to change what user you get your data for call the `set_user(self, user)` method:  
 `api.set_user('different_user')`  
   
@@ -95,20 +62,7 @@ If you want to change the platform call the `set_platform(self, platform)` metho
   
 `api.set_platform('pc')`  
 `api.set_user('user_name')`  
-
-  
-## Notes  
-Fortnite tracker also provides recent games, and additional lifetime stats, such as top 3, 5, 6, etc.  
-This data didn't seem very reliable to me so I didn't include it, but it can be accessed from the json data.   
-  
-The error handing in this project is very basic. Since Fortnite Tracker's API only has one API call that spits back 
-some json, the only expection I'm checking for is a KeyError exception. If this happens, the method will return 0 as a 
-string.  
-  
-If you decide to send a pull request, make sure you follow the 
-[Black code style](https://github.com/ambv/black). Reformatting your code for Black is as easy as installing Black with 
-`pip install black` and running `black FortniteAPI.py`  
-  
+      
 ## License  
   
 Copyright (c) 2018 Tyler Williamson Licensed under the WTFPL license.

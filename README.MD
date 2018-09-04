@@ -17,7 +17,8 @@ but this library plays by the Fortnite Tracker rules.
   
   
 ## Installation  
-Clone the repo and drag the FortniteAPI folder into your project, and removed the unneeded files.  
+`pip install FortniteTrackerAPI`
+  
   
 ## Examples  
 When creating your API object you'll need to suppy it with a platform.  
@@ -50,11 +51,11 @@ Complete example:
     from FortniteAPI import FortniteAPI
   
     FortniteAPI.api_key = 'fortnite_api_key'
-    api = FortniteAPI('xbl', 'tylerw330')
+    tyler = FortniteAPI('xbl', 'tylerw330')
   
-    print('Solo kills per game: ' + str(api.stats.CURRENT_SOLO_KPG))
-    print('Duo kills per game: ' + str(api.stats.CURRENT_DUO_KPG))
-    print('Squad kills per game: ' + str(api.stats.CURRENT_SQUAD_KPG))
+    print('Solo kills per game: ' + str(tyler.stats.CURRENT_SOLO_KPG))
+    print('Duo kills per game: ' + str(tyler.stats.CURRENT_DUO_KPG))
+    print('Squad kills per game: ' + str(tyler.stats.CURRENT_SQUAD_KPG))
      
 If you'd like to change what user you get your data for call the `set_user(self, user)` method:  
 `api.set_user('different_user')`  

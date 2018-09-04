@@ -1,5 +1,6 @@
 import requests
-import Stats
+from FortniteAPI import Stats
+
 api_key = None
 
 
@@ -16,7 +17,7 @@ class FortniteAPI:
         self.url = ""
         self.update_url()
         self.stats = None
-        if api_key is not None:
+        if self.api_key is not None:
             self.make_request()
 
     def set_user(self, user):
@@ -29,16 +30,11 @@ class FortniteAPI:
 
     def update_url(self):
         self.url = self.base_url + self.platform + "/" + self.user
-        if api_key is not None:
+        if self.api_key is not None:
             self.make_request()
 
-    def set_api_key(self, key):
-        global api_key
-        api_key = key
-        self.make_request()
-
     def make_request(self):
-        header = {"TRN-Api-Key": api_key}
+        header = {"TRN-Api-Key": self.api_key}
         req = requests.get(self.url, headers=header)
         req.json()
         req.close()
